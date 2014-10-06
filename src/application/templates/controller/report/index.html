@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load url_for partial %}
+{% block title %}Reported quotes{% endblock %}
+
+{% block content %}
+<ul id="rl">
+	{% for r in lst %}
+	<li><a href="/quote/show/{{ r.quote.key }}">#{{ r.quote.key }}</a> by <a href="{% url_for controller=usr %}#{{ r.user.user.email }}">{{ r.user.user.nickname }}</a>: {{ r.reason|escape }}
+		<form action="{% url_for controller=report action=manage %}" method="post">
+			<div>
+				<input type="hidden" name="key" value="{{ r.key }}" />
+				<select name="action">
+					<option value="dq">
+						Delete quote
+					</option>
+					<option value="dr">
+						Delete report
+					</option>
+				</select>
+				<input type="submit" value="Submit" />
+			</div>
+		</form>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

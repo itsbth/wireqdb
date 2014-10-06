@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<Quote Key="{{ q.key }}">
+	<Rating>{{ q.rating }}</Rating>
+	<Value>{{ q.content|escape }}</Value>
+	<Tags>
+	{% for tag in q.tags %}
+		<Tag>{{ tag|escape }}</Tag>
+	{% endfor %}
+	</Tags>
+</Quote>

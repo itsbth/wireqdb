@@ -1,0 +1,9 @@
+{% load url_for %}
+<form id="reportform" action="{% url_for controller=report action=create id=id %}" method="post">
+	<div>
+		<p><label>Reason:<br /><textarea name="reason"></textarea> </label></p>
+		<p><input type="submit" value="Report" /></p>
+	</div>
+</form>
+<script type="text/javascript">ri();</script>
+<a href="#" class="small-text" onclick="cf();">Close</a>

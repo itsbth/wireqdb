@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application version="1.0">
+	<Controllers>
+	{% for cont in controllers %}
+		<Controller URL="/{{ cont }}">{{ cont }}</Controller>
+	{% endfor %}
+	</Controllers>
+</Application>

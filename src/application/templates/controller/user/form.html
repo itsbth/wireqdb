@@ -1,0 +1,12 @@
+{% load url_for %}
+<form action="{% url_for controller='user' action='set_access' id=id %}" method="post">
+	<div>
+		<select name="access">
+			{% for a in levels %}
+			<option {% ifequal a access %} selected="selected"{% endifequal %}>{{ a }}</option>
+			{% endfor %}
+		</select>
+		<input type="submit" value="Change access" />
+	</div>
+</form>
+<a class="small-text" href="#" onclick="cf();">(close)</a>

@@ -1,0 +1,17 @@
+{% load url_for %}
+<div class="quotebox">
+	<div class="rating" id="quote-{{ quote.key }}">
+		<p class="rb u"></p>
+		<p class="rn"><span class="cnt">{{ quote.rating }}</span></p>
+		<p class="rb d"></p>
+		<p class="{% if user_obj.is_staff %}delete{% else %}report{% endif %}"></p>
+	</div>
+	<div class="quote">
+		{{ quote.content|escape|linebreaks }}
+		<div class="tags">
+			{% for tag in quote.tags %}
+			<a href="{% url_for tag id=tag %}">{{ tag|escape }}</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>

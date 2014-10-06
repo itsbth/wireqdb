@@ -1,0 +1,1 @@
+function cl(a){flash('<img src="/img/ajax-loader.gif" alt="Loading..." />',true);$("#flash").load("/usr/form/"+a)};

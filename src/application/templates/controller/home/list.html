@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Controller list{% endblock %}
+
+{% block content %}
+<ul>
+	{% for cont in controllers %}
+	<li>{{ cont }}</li>
+	{% endfor %}
+</ul>
+{% endblock %}

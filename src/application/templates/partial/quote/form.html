@@ -1,0 +1,12 @@
+{% load url_for %}
+<form action="{% url_for controller='quote' action='create' %}" method="post">
+	<fieldset id="newquote">
+		<legend>New quote</legend>
+		<p><textarea name="content" rows="5" cols="50"></textarea></p>
+		<p>
+			<input type="text" name="tags" id="tag-inp" />
+			<input type="submit" value="Submit" id="quote-submit" />
+		</p>
+		<p class="small-text">Use space to seperate tags. Join multiple words with -, e.g multiple-words</p>
+	</fieldset>
+</form>

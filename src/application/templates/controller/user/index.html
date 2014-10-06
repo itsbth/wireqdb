@@ -1,0 +1,24 @@
+{% load url_for %}
+{% extends "base.html" %}
+{% block title %}Users{% endblock %}
+{% block head %}<script type="text/javascript" src="/js/admin.mini.js"></script>{% endblock %}
+{% block content %}
+<table id="ut">
+	<thead>
+		<tr>
+			<th scope="col">Nick</th>
+			<th scope="col">First seen</th>
+			<th scope="col">Access</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for u in users %}
+		<tr class="{% cycle c1,c2 %}" id="{{ u.user.email }}">
+			<td>{{ u.user.nickname }}</td>
+			<td>{{ u.first_seen|date:"d/m/Y G:i" }} ({{ u.first_seen|timesince }} ago)</td>
+			<td ondblclick="cl('{{ u.key }}');">{{ u.level_name }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
